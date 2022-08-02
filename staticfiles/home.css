@@ -1,0 +1,114 @@
+.form-container{
+    height: 100vh;
+    display: flex;
+    flex-flow:column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero{
+    margin:20px auto;
+    text-align: center;
+}
+.hero h1{
+    font-size:36px;
+    font-weight: 900;
+    text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    margin:10px auto;
+    color: #ffffff;
+}
+.hero h2{
+    margin:10px auto;
+    font-size: 15px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 30px;
+}
+
+form input[type="text"]{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding:15px;
+    color:#000000;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+}
+
+form button[type="submit"]{
+    width:100%;
+    outline: none;
+    border: none;
+    background: #000000;
+    color:#ffffff;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.shortened-url p{
+    color: #ffffff;
+    padding:10px 20px;
+    background: #B20600;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.15),-1px -1px 10px rgba(0,0,0,0.05);
+    border-radius: 6px;
+}
+.shortened-url{
+    animation-name: slide;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-iteration-count: 1;
+}
+#short-url{
+    background-color: rgb(23, 130, 23);
+    cursor: pointer;
+}
+
+@keyframes slide {
+    0%{
+        transform:translateX(300px);
+        opacity: 0;
+    }
+    100%{
+        transform:translateX(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width:480px) {
+    form input[type="text"]{
+        width: 68%;
+        max-width: 500px;
+        margin:0 5px 0 0;
+        padding:20px;
+    }
+    form button[type="submit"]{
+        width:30%;
+        max-width:200px;
+        padding:20px;
+    }
+
+}
+
+@media screen and (min-width:768px) {
+    .hero h1{
+        font-size:56px;
+    }
+    .hero span{
+        font-size: 70px;
+    }
+    .hero h2{
+        font-size: 28px;
+    }
+    
+}

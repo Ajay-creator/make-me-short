@@ -21,7 +21,7 @@
                 <p>{{message}}</p>
             {% endfor %}
             {% if code %}
-                <p id="short-url" onClick="copyURL()">{{base_url}}{{code}}</p>
+                <p id="short-url" onClick="copyURL()">{{request.build_absolute_uri}}{{code}}</p>
             {% endif %}
         </div>
     </div>
