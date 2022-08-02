@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <link href="{% static 'home.css' %}" rel="stylesheet"/>
+    <div class="form-container">
+        <div class="hero">
+            <h1><span>M</span>ake <span>M</span>e <span>S</span>hort</h1>
+            <h2>Now make your long URLs short without any hassle for free.</h2>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {% if url %}
+                <input type='text' name='url' placeholder='Enter your long url' value={{url}} required/>
+            {% else %}
+                <input type='text' name='url' placeholder='Enter your long url' required/>
+            {% endif %}
+            <button type='submit'>Make Me Short</button>
+        </form>
+        <div class="shortened-url">
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% if code %}
+                <p id="short-url" onClick="copyURL()">{{base_url}}{{code}}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function copyURL(){
+            const url = document.getElementById('short-url').innerHTML;
+            console.log(url)
+            navigator.clipboard.writeText(url);
+            alert('URL copied: '+ url)
+        }
+        
+    </script>
+{% endblock body %}
