@@ -27,9 +27,13 @@
     </div>
     <script>
         function copyURL(){
-            const url = document.getElementById('short-url').innerHTML;
-            console.log(url)
-            navigator.clipboard.writeText(url);
+            var range = document.createRange();
+            const url = document.getElementById("short-url").innerHTML
+            range.selectNode(document.getElementById("short-url"));
+            window.getSelection().removeAllRanges(); // clear current selection
+            window.getSelection().addRange(range); // to select text
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();// to deselect
             alert('URL copied: '+ url)
         }
         
